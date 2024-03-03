@@ -86,7 +86,16 @@ async def start_pm(client, message: Message, _):
         out = private_panel(_)
         await message.reply_photo(
             photo=config.START_IMG_URL,
-            caption=("<b>Hola</b> {0}, ⚡\nThis is {1} </>\n <b> I'm a simple and minimal music bot</b>/n/n» Check Commands to get information about my modules 🌱</b>").format(message.from_user.mention, app.mention),
+            caption=("""
+Hi {0}
+<b>Welcome to IO.Music</b>
+powered by @iOpacity
+
+I am a strong VC music streaming bot running on a high-speed server.
+Add me for a seamless music experience in VCs </>
+
+Check commands to get information about my modules 🌱
+""").format(message.from_user.mention),
             reply_markup=InlineKeyboardMarkup(out),
         )
         if await is_on_off(2):
@@ -103,8 +112,17 @@ async def start_gp(client, message: Message, _):
     uptime = int(time.time() - _boot_)
     await message.reply_photo(
         photo=config.START_IMG_URL,
-        caption=("<b>Hola</b> {0}, ⚡\nThis is {1} </>\n <b> I'm a simple and minimal music bot</b>/n/n» Check Commands to get information about my modules 🌱</b>").format(app.mention, get_readable_time(uptime)),
-        reply_markup=InlineKeyboardMarkup(out),
+        caption=("""
+Hi {0}
+<b>Welcome to IO.Music</b>
+powered by @iOpacity
+
+I am a strong VC music streaming bot running on a high-speed server.
+Add me for a seamless music experience in VCs </>
+
+Check commands to get information about my modules 🌱
+""").format(message.from_user.mention),
+            reply_markup=InlineKeyboardMarkup(out),
     )
     return await add_served_chat(message.chat.id)
 
