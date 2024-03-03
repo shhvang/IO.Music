@@ -6,7 +6,7 @@ from TGNMusic.utils.database import add_off, add_on
 from TGNMusic.utils.decorators.language import language
 
 
-@app.on_message(filters.command(["logger", "logs"]) & SUDOERS)
+@app.on_message(filters.command(["logger"]) & SUDOERS)
 @language
 async def logger(client, message, _):
     usage = _["log_1"]
