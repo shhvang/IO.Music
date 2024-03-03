@@ -12,7 +12,8 @@
   <b>IO.Music</b>
 </h1>
 
-## <h2 I am a powerful Music Bot hosted on a very fast server.
+## <h2 align="center">
+I am a powerful Music Bot hosted on a very fast server.
 Add me for seamless music experience in VCs </h2>
 
 
