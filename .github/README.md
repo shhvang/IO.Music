@@ -12,11 +12,9 @@
   <b>IO.Music</b>
 </h1>
 
-## <h2
-I am a powerful Music Bot hosted on a very fast server.
+## 
+<h2 I am a powerful Music Bot hosted on a very fast server.
 Add me for seamless music experience in VCs </h2>
-
-![@IOSupportGroup](https://t.me/IOsupportgroup)
 
 
 <img src="https://readme-typing-svg.herokuapp.com?color=F00FF00&width=1080&lines=A+bot+that+can+play+music+on+Telegram+Group%E2%9D%A4%EF%B8%8F">
