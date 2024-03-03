@@ -8,7 +8,7 @@ from TGNMusic.utils.decorators.language import language
 from config import BANNED_USERS
 
 
-@app.on_message(filters.command(["blchat", "blacklistchat"]) & SUDOERS)
+@app.on_message(filters.command(["blchat", "blacklistchat", "blacklist"]) & SUDOERS)
 @language
 async def blacklist_chat_func(client, message: Message, _):
     if len(message.command) != 2:
@@ -28,7 +28,7 @@ async def blacklist_chat_func(client, message: Message, _):
 
 
 @app.on_message(
-    filters.command(["whitelistchat", "unblacklistchat", "unblchat"]) & SUDOERS
+    filters.command(["whitelist", "unblacklistchat", "unblchat"]) & SUDOERS
 )
 @language
 async def white_funciton(client, message: Message, _):
@@ -52,7 +52,7 @@ async def all_chats(client, message: Message, _):
         try:
             title = (await app.get_chat(chat_id)).title
         except:
-            title = "ᴘʀɪᴠᴀᴛᴇ ᴄʜᴀᴛ"
+            title = "Private Chats"
         j = 1
         text += f"{count}. {title}[<code>{chat_id}</code>]\n"
     if j == 0:
