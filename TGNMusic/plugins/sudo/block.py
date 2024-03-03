@@ -9,7 +9,7 @@ from TGNMusic.utils.extraction import extract_user
 from config import BANNED_USERS
 
 
-@app.on_message(filters.command(["block"]) & SUDOERS)
+@app.on_message(filters.command(["block", "addbl"]) & SUDOERS)
 @language
 async def useradd(client, message: Message, _):
     if not message.reply_to_message:
@@ -23,7 +23,7 @@ async def useradd(client, message: Message, _):
     await message.reply_text(_["block_2"].format(user.mention))
 
 
-@app.on_message(filters.command(["unblock"]) & SUDOERS)
+@app.on_message(filters.command(["unblock", "rmbl", "removebl"]) & SUDOERS)
 @language
 async def userdel(client, message: Message, _):
     if not message.reply_to_message:
@@ -37,7 +37,7 @@ async def userdel(client, message: Message, _):
     await message.reply_text(_["block_4"].format(user.mention))
 
 
-@app.on_message(filters.command(["blocked", "blockedusers", "blusers"]) & SUDOERS)
+@app.on_message(filters.command(["blocked", "blockedusers", "blusers", "blocklist"]) & SUDOERS)
 @language
 async def sudoers_list(client, message: Message, _):
     if not BANNED_USERS:
@@ -52,7 +52,7 @@ async def sudoers_list(client, message: Message, _):
             count += 1
         except:
             continue
-        msg += f"{count}➤ {user}\n"
+        msg += f"{count}. {user}\n"
     if count == 0:
         return await mystic.edit_text(_["block_5"])
     else:
