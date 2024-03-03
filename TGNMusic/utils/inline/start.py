@@ -20,8 +20,7 @@ def private_panel(_):
     buttons = [
         [
             InlineKeyboardButton(
-                text=_["Recruit Me"],
-                url=f"https://t.me/{app.username}?startgroup=true"),
+                text=_["Recruit Me"],url=f"https://t.me/{app.username}?startgroup=true"),
             InlineKeyboardButton(text=_["Commands"], callback_data="settings_back_helper"),
         ],
         [
