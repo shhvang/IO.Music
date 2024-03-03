@@ -103,7 +103,7 @@ async def start_gp(client, message: Message, _):
     uptime = int(time.time() - _boot_)
     await message.reply_photo(
         photo=config.START_IMG_URL,
-        caption=_["start_1"].format(app.mention, get_readable_time(uptime)),
+        caption=("<b>Hola</b> {0}, ⚡\nThis is {1} </>\n <b> I'm a simple and minimal music bot</b>/n/n» Check Commands to get information about my modules 🌱</b>").format(app.mention, get_readable_time(uptime)),
         reply_markup=InlineKeyboardMarkup(out),
     )
     return await add_served_chat(message.chat.id)
