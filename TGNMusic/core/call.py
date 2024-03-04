@@ -12,8 +12,9 @@ from pytgcalls.exceptions import (
 )
 from ntgcalls import TelegramServerError
 from pytgcalls.types import Update
-from pytgcalls.types.raw import AudioPiped, AudioVideoPiped
-from pytgcalls.types.raw import HighQualityAudio, MediumQualityVideo
+from pytgcalls.types.audiopiped import AudioPiped
+from pytgcalls.types.audiovideopiped import AudioVideoPiped
+from pytgcalls.types.raw.quality import HighQualityAudio, MediumQualityVideo
 from pytgcalls.types.stream import StreamAudioEnded
 
 import config
