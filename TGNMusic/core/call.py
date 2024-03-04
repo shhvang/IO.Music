@@ -20,9 +20,6 @@ from pytgcalls.types.stream.legacy import AudioVideoPiped
 from pytgcalls.types.stream import AudioQuality, VideoQuality
 from pytgcalls.types.stream import StreamAudioEnded
 
-from AudioQuality import STUDIO
-from VideoQuality import FHD_1080p
-
 import config
 from TGNMusic import LOGGER, YouTube, app
 from TGNMusic.misc import db
