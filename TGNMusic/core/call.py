@@ -10,15 +10,16 @@ from pytgcalls.exceptions import (
     AlreadyJoinedError,
     NoActiveGroupCall,
 )
-from ntgcalls import TelegramServerError
-from pytgcalls.types import Update
-from pytgcalls.types.stream.legacy import AudioPiped
-from pytgcalls.types.stream.legacy import AudioVideoPiped
-from pytgcalls.types.stream.legacy.quality import Studio, FHD_1080p
-from pytgcalls.types.stream import StreamAudioEnded
 from pytgcalls import PyTgCalls
 from pytgcalls import idle
 from pytgcalls.types import MediaStream
+from ntgcalls import TelegramServerError
+from pytgcalls.types.raw import Update
+from pytgcalls.types.raw stream.legacy import AudioPiped
+from pytgcalls.types.raw stream.legacy import AudioVideoPiped
+from pytgcalls.types.stream.raw legacy.quality import Studio, FHD_1080p
+from pytgcalls.types.raw stream import StreamAudioEnded
+
 
 import config
 from TGNMusic import LOGGER, YouTube, app
