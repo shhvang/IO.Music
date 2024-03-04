@@ -17,9 +17,11 @@ from ntgcalls import TelegramServerError
 from pytgcalls.types import Update
 from pytgcalls.types.stream.legacy import AudioPiped
 from pytgcalls.types.stream.legacy import AudioVideoPiped
-from pytgcalls.types.stream.audioquality import STUDIO, FHD_1080p
+from pytgcalls.types.stream import AudioQuality, VideoQuality
 from pytgcalls.types.stream import StreamAudioEnded
 
+from AudioQuality import STUDIO
+from VideoQuality import FHD_1080p
 
 import config
 from TGNMusic import LOGGER, YouTube, app
