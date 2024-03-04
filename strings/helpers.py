@@ -2,19 +2,12 @@ HELP_1 = """<b><u>Admin Commands -</b></u>
 
 Just add a letter <b>ᴄ</b> in the start of the regular commands to be able to use them in channels.
 
-
 /pause : pause the track
-
 /resume : resume the track
-
 /skip : skip to the next track
-
 /skip <number> : skip to the particular track in queue
-
 /end ᴏʀ /stop : clears the queue and ends the stream
-
 /player : get an interactive player panel
-
 /queue : shows the track queue
 """
 
