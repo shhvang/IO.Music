@@ -16,7 +16,6 @@ from pytgcalls.types.stream.legacy import AudioPiped
 from pytgcalls.types.stream.legacy import AudioVideoPiped
 from pytgcalls.types.stream.legacy.quality import Studio, FHD_1080p
 from pytgcalls.types.stream import StreamAudioEnded
-pip install py-tgcalls==1.2.9
 
 import config
 from TGNMusic import LOGGER, YouTube, app
