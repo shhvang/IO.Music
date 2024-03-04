@@ -14,7 +14,7 @@ from ntgcalls import TelegramServerError
 from pytgcalls.types import Update
 from pytgcalls.types.stream.legacy import AudioPiped
 from pytgcalls.types.stream.legacy import AudioVideoPiped
-from pytgcalls.types.stream.legacy.quality import HighQualityAudio, MediumQualityVideo
+from pytgcalls.types.stream.legacy.quality import Studio, FHD_1080p
 from pytgcalls.types.stream import StreamAudioEnded
 
 import config
