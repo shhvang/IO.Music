@@ -279,7 +279,7 @@ class Call(PyTgCalls):
         await assistant.join_group_call(
             config.LOG_GROUP_ID,
             MediaStream(link),
-            stream=StreamType().pulse_stream,
+            stream=Stream().pulse_stream,
         )
         await asyncio.sleep(0.2)
         await assistant.leave_group_call(config.LOG_GROUP_ID)
@@ -315,7 +315,7 @@ class Call(PyTgCalls):
             await assistant.join_group_call(
                 chat_id,
                 stream,
-                stream=StreamType().pulse_stream,
+               # stream=StreamType().pulse_stream,
             )
         except NoActiveGroupCall:
             raise AssistantErr(_["call_8"])
