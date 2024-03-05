@@ -1,5 +1,6 @@
 import random
 import string
+import logging
 
 from pyrogram import filters
 from pyrogram.types import InlineKeyboardMarkup, InputMediaPhoto, Message
@@ -105,6 +106,7 @@ async def play_commnd(
                     forceplay=fplay,
                 )
             except Exception as e:
+                logging.error(f"ERROR: {e}")
                 ex_type = type(e).__name__
                 err = e if ex_type == "AssistantErr" else _["general_2"].format(ex_type)
                 return await mystic.edit_text(err)
