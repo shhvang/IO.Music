@@ -197,7 +197,7 @@ class Call(PyTgCalls):
                 out,
                 AudioQuality.Studio,
                 VideoQuality.FHD_1080P,
-                additional_ffmpeg_parameters=f"-ss {played} -to {duration}",
+                ffmpeg_parameters=f"-ss {played} -to {duration}",
             )
             if playing[0]["streamtype"] == "video"
             else MediaStream(
