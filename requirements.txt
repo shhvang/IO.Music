@@ -10,7 +10,7 @@ heroku3
 motor
 pillow
 psutil
-py-tgcalls==0.8.6
+py-tgcalls==0.9.7
 ntgcalls==1.1.2
 pykeyboard
 pyrogram==2.0.106
