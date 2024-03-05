@@ -193,7 +193,7 @@ class Call(PyTgCalls):
         played, con_seconds = speed_converter(playing[0]["played"], speed)
         duration = seconds_to_min(dur)
         stream = (
-            AudioVideoPiped(
+            MediaStream(
                 out,
                 AudioQuality.Studio,
                 VideoQuality.FHD_1080P,
