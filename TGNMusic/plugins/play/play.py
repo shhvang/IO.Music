@@ -106,7 +106,7 @@ async def play_commnd(
                     forceplay=fplay,
                 )
             except Exception as e:
-                logging.error(f"ERROR: {e}")
+                logging.exception(f"ERROR: {e}")
                 ex_type = type(e).__name__
                 err = e if ex_type == "AssistantErr" else _["general_2"].format(ex_type)
                 return await mystic.edit_text(err)
