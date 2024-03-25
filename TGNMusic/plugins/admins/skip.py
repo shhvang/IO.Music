@@ -13,7 +13,7 @@ from TGNMusic.utils.thumbnails import get_thumb
 from config import BANNED_USERS
 
 
-@app.on_message(
+@app.on_message('hey io skip',
     filters.command(["skip", "cskip", "next", "cnext"]) & filters.group & ~BANNED_USERS
 )
 @AdminRightsCheck
