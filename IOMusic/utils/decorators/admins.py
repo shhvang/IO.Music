@@ -19,6 +19,93 @@ from strings import get_string
 from ..formatters import int_to_alpha
 
 
+def AdminActual(mystic):
+    async def wrapper(client, message):
+        if await is_maintenance() is False:
+            if message.from_user.id not in SUDOERS:
+                return await message.reply_text(
+                    text=f"{app.mention} is under maintenance, Please visit <a href={SUPPORT_CHAT}>Support Chat</a> to know the reason.",
+                    disable_web_page_preview=True,
+                )
+
+        try:
+            await message.delete()
+        except:
+            pass
+
+        try:
+            language = await get_lang(message.chat.id)
+            _ = get_string(language)
+        except:
+            _ = get_string("en")
+        if message.sender_chat:
+            upl = InlineKeyboardMarkup(
+                [
+                    [
+                        InlineKeyboardButton(
+                            text="How to Solve?",
+                            callback_data="AnonymousAdmin",
+                        ),
+                    ]
+                ]
+            )
+            return await message.reply_text(_["general_3"], reply_markup=upl)
+        if message.from_user.id not in SUDOERS:
+            try:
+                member = (
+                    await app.get_chat_member(message.chat.id, message.from_user.id)
+                ).privileges
+            except:
+                return
+            if not member.can_manage_video_chats:
+                return await message.reply(_["general_4"])
+        return await mystic(client, message, _)
+
+    return wrapper
+
+
+def ActualAdminCB(mystic):
+    async def wrapper(client, CallbackQuery):
+        if await is_maintenance() is False:
+            if CallbackQuery.from_user.id not in SUDOERS:
+                return await CallbackQuery.answer(
+                    f"{app.mention} is under maintenance, Please visit <a href={SUPPORT_CHAT}>Support Chat</a> to know the reason.",
+                    show_alert=True,
+                )
+        try:
+            language = await get_lang(CallbackQuery.message.chat.id)
+            _ = get_string(language)
+        except:
+            _ = get_string("en")
+        if CallbackQuery.message.chat.type == ChatType.PRIVATE:
+            return await mystic(client, CallbackQuery, _)
+        is_non_admin = await is_nonadmin_chat(CallbackQuery.message.chat.id)
+        if not is_non_admin:
+            try:
+                a = (
+                    await app.get_chat_member(
+                        CallbackQuery.message.chat.id,
+                        CallbackQuery.from_user.id,
+                    )
+                ).privileges
+            except:
+                return await CallbackQuery.answer(_["general_4"], show_alert=True)
+            if not a.can_manage_video_chats:
+                if CallbackQuery.from_user.id not in SUDOERS:
+                    token = await int_to_alpha(CallbackQuery.from_user.id)
+                    _check = await get_authuser_names(CallbackQuery.from_user.id)
+                    if token not in _check:
+                        try:
+                            return await CallbackQuery.answer(
+                                _["general_4"],
+                                show_alert=True,
+                            )
+                        except:
+                            return
+        return await mystic(client, CallbackQuery, _)
+
+    return wrapper
+
 def AdminRightsCheck(mystic):
     async def wrapper(client, message):
         if await is_maintenance() is False:
@@ -111,93 +198,5 @@ Refresh Admincache : /reload
                             return await message.reply_text(_["admin_14"])
 
         return await mystic(client, message, _, chat_id)
-
-    return wrapper
-
-
-def AdminActual(mystic):
-    async def wrapper(client, message):
-        if await is_maintenance() is False:
-            if message.from_user.id not in SUDOERS:
-                return await message.reply_text(
-                    text=f"{app.mention} is under maintenance, Please visit <a href={SUPPORT_CHAT}>Support Chat</a> to know the reason.",
-                    disable_web_page_preview=True,
-                )
-
-        try:
-            await message.delete()
-        except:
-            pass
-
-        try:
-            language = await get_lang(message.chat.id)
-            _ = get_string(language)
-        except:
-            _ = get_string("en")
-        if message.sender_chat:
-            upl = InlineKeyboardMarkup(
-                [
-                    [
-                        InlineKeyboardButton(
-                            text="How to Solve?",
-                            callback_data="AnonymousAdmin",
-                        ),
-                    ]
-                ]
-            )
-            return await message.reply_text(_["general_3"], reply_markup=upl)
-        if message.from_user.id not in SUDOERS:
-            try:
-                member = (
-                    await app.get_chat_member(message.chat.id, message.from_user.id)
-                ).privileges
-            except:
-                return
-            if not member.can_manage_video_chats:
-                return await message.reply(_["general_4"])
-        return await mystic(client, message, _)
-
-    return wrapper
-
-
-def ActualAdminCB(mystic):
-    async def wrapper(client, CallbackQuery):
-        if await is_maintenance() is False:
-            if CallbackQuery.from_user.id not in SUDOERS:
-                return await CallbackQuery.answer(
-                    f"{app.mention} is under maintenance, Please visit <a href={SUPPORT_CHAT}>Support Chat</a> to know the reason.",
-                    show_alert=True,
-                )
-        try:
-            language = await get_lang(CallbackQuery.message.chat.id)
-            _ = get_string(language)
-        except:
-            _ = get_string("en")
-        if CallbackQuery.message.chat.type == ChatType.PRIVATE:
-            return await mystic(client, CallbackQuery, _)
-        is_non_admin = await is_nonadmin_chat(CallbackQuery.message.chat.id)
-        if not is_non_admin:
-            try:
-                a = (
-                    await app.get_chat_member(
-                        CallbackQuery.message.chat.id,
-                        CallbackQuery.from_user.id,
-                    )
-                ).privileges
-            except:
-                return await CallbackQuery.answer(_["general_4"], show_alert=True)
-            if not a.can_manage_video_chats:
-                if CallbackQuery.from_user.id not in SUDOERS:
-                    token = await int_to_alpha(CallbackQuery.from_user.id)
-                    _check = await get_authuser_names(CallbackQuery.from_user.id)
-                    if token not in _check:
-                        try:
-                            return await CallbackQuery.answer(
-                                _["general_4"],
-                                show_alert=True,
-                            )
-                        except:
-                            return
-        return await mystic(client, CallbackQuery, _)
 
     return wrapper
