@@ -1,6 +1,6 @@
 [![](https://img.shields.io/badge/Opacity-darkgreen)](#)
 [![Stars](https://img.shields.io/github/stars/shhvang/IO.Music?style=flat-square&color=yellow)](https://github.com/shhvang/IO.Music/stargazers)
-[![Forks](https://img.shields.io/github/forks/shhvang/IO.Music?style=flat-square&color=orange)](https://github.com/Godfatherakkii/TGN-MUSIC/fork)
+[![Forks](https://img.shields.io/github/forks/shhvang/IO.Music?style=flat-square&color=orange)](https://github.com/Godfatherakkii/IO-MUSIC/fork)
 
 
 [![Telegram](https://img.shields.io/badge/-Support-grey?style=for-the-badge&logo=Telegram&logoColor=white&labelColor=8E2DE2)](https://t.me/IOSupportGroup)

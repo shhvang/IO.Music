@@ -1,12 +1,12 @@
 {
-    "name": "TGN MUSIC",
+    "name": "IO MUSIC",
     "description": "A Telegram Music Player Bot, written in Python with Pyrogram and Py-Tgcalls.",
     "logo": "https://graph.org/file/b5c8b5da501bb64508b10.jpg",
     "keywords": [
     "python3",
     "telegram",
     "bot",
-    "TGNMusic",
+    "IOMusic",
     "MusicBot",
     "telegram-bot",
     "pyrogram"
