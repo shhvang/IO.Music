@@ -107,7 +107,7 @@ def ActualAdminCB(mystic):
     return wrapper
 
 def AdminRightsCheck(mystic):
-    async def wrapper(client, message):
+    async def wrapper(client, message, _, chat_id=None):
         if await is_maintenance() is False:
             if message.from_user.id not in SUDOERS:
                 return await message.reply_text(
@@ -137,7 +137,7 @@ def AdminRightsCheck(mystic):
                 ]
             )
             return await message.reply_text(_["general_3"], reply_markup=upl)
-        if message.command[0][0] == "c":
+        if message.command and message.command[0][0] == "c":
             chat_id = await get_cmode(message.chat.id)
             if chat_id is None:
                 return await message.reply_text(_["setting_7"])
