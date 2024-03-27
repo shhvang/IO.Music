@@ -42,7 +42,7 @@ from config import BANNED_USERS, lyrical
     & filters.group
     & ~BANNED_USERS
 )
-@app.on_message(filters.command('ey io play', prefix='H') & filters.group & ~BANNED_USERS)
+@app.on_message(filters.command('ey io play', prefixes='H') & filters.group & ~BANNED_USERS)
 @PlayWrapper
 async def play_commnd(
     client,
